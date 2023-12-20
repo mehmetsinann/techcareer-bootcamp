@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="number" id="inputNumber1" placeholder="İlk sayıyı giriniz" />
+      <input
+        type="number"
+        id="inputNumber2"
+        placeholder="İkinci sayıyı giriniz"
+      />
+    </div>
+    <div>
+      <button onclick="calculate('multiply')">x</button>
+      <button onclick="calculate('plus')">+</button>
+      <button onclick="calculate('minus')">-</button>
+      <button onclick="calculate('divide')">/</button>
+    </div>
+    <span id="result"></span>
+
+    <script>
+      function calculate(operation) {
+        const numberElement1 = document.getElementById("inputNumber1");
+        const numberElement2 = document.getElementById("inputNumber2");
+        const number1 = parseFloat(numberElement1.value);
+        const number2 = parseFloat(numberElement2.value);
+        if (!isNaN(number1) && !isNaN(number2)) {
+          let result;
+          switch (operation) {
+            case "multiply":
+              result = number1 * number2;
+              break;
+            case "plus":
+              result = number1 + number2;
+              break;
+            case "minus":
+              result = number1 - number2;
+              break;
+            case "divide":
+              result = number1 / number2;
+              break;
+            default:
+              break;
+          }
+          document.getElementById("result").innerText = result.toFixed(5);
+        } else {
+          alert("Geçersiz değerler!");
+        }
+        numberElement1.value = "";
+        numberElement2.value = "";
+      }
+    </script>
+  </body>
+</html>

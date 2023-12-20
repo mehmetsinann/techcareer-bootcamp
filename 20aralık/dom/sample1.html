@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input id="number" />
+      <button onclick="calculate()">LOG</button>
+    </div>
+
+    <script>
+      function calculate() {
+        const numberElement = document.getElementById("number");
+        const value = numberElement.value;
+        if (!isNaN(value)) {
+          const calculatedValue = value * 1.8;
+          alert(calculatedValue);
+        } else {
+          alert("Bu değer geçersiz!");
+        }
+        numberElement.value = "";
+      }
+    </script>
+  </body>
+</html>
